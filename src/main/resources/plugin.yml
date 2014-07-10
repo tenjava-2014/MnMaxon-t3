@@ -1,0 +1,3 @@
+name: MnMaxon-t3
+main: com.tenjava.entries.MnMaxon.t3.TenJava
+version: '${project.version}'
