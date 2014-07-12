@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import com.tenjava.entries.MnMaxon.t3.Config;
 
 public class Village {
-	private int ID;
+	public int ID;
 
 	public Village(ArrayList<Chunk> chunks) {
 		YamlConfiguration data = Config.load("VillageData");
@@ -78,6 +78,10 @@ public class Village {
 		vcs.remove(setCenter);
 		TownCenter tc = (TownCenter) setCenter;
 		vcs.add(tc);
+		for (VillageChunk vc : vcs)
+			vc.build();
+		data.set("ID.", value);
+		Config.save(data, "VillageData");
 	}
 
 	private Village(int ID) {
