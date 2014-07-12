@@ -11,7 +11,7 @@ public class Config {
 			fileName = TenJava.dataFolder + "/" + fileName;
 		File file = new File(fileName);
 		if (!file.exists()) {
-			file.mkdirs();
+			new File(TenJava.dataFolder).mkdirs();
 			try {
 				file.createNewFile();
 			} catch (IOException e) {
@@ -19,5 +19,24 @@ public class Config {
 			}
 		}
 		return YamlConfiguration.loadConfiguration(file);
+	}
+
+	public static void save(YamlConfiguration cfg, String fileName) {
+		if (!fileName.contains(TenJava.dataFolder))
+			fileName = TenJava.dataFolder + "/" + fileName;
+		File file = new File(fileName);
+		if (!file.exists()) {
+			file.mkdirs();
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			cfg.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
