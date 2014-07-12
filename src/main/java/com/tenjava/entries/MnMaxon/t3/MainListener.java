@@ -45,7 +45,6 @@ public class MainListener implements Listener {
 	}
 
 	private static ArrayList<Chunk> getSurroundingChunks(Chunk chunk, ArrayList<Chunk> selectedChunks, int size) {
-		YamlConfiguration cfg = Config.load("Config.yml");
 		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ()))
 				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
 			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ()));
