@@ -6,7 +6,7 @@ import org.bukkit.Chunk;
 
 public class Dungeon {
 
-	public Dungeon(ArrayList<Chunk> dungeonChunks) {// stuff
+	public Dungeon(ArrayList<Chunk> dungeonChunks) {// TODO
 	}
 
 }
