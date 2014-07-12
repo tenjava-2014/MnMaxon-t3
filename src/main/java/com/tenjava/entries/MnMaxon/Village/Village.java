@@ -10,7 +10,11 @@ import com.tenjava.entries.MnMaxon.t3.Config;
 public class Village {
 	private int ID;
 
-	public Village(ArrayList<Chunk> villageChunks) {
+	public Village(ArrayList<Chunk> chunks) {
+		YamlConfiguration data = Config.load("VillageData");
+		ArrayList<VillageChunk> vc = new ArrayList<VillageChunk>();
+		for (Chunk chunk : chunks) {
+		}
 	}
 
 	private Village(int ID) {
@@ -25,9 +29,9 @@ public class Village {
 	}
 
 	public static int generateID() {
-		YamlConfiguration cfg = Config.load("VillageData");
+		YamlConfiguration data = Config.load("VillageData");
 		int i = 0;
-		while (cfg.get("Villages." + i) != null)
+		while (data.get("Villages." + i) != null)
 			i++;
 		return i;
 	}
