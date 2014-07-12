@@ -20,8 +20,19 @@ public class MainListener implements Listener {
 			ArrayList<Chunk> villageChunks = new ArrayList<Chunk>();
 			ArrayList<Chunk> dungeonChunks = new ArrayList<Chunk>();
 			if (cfg.getDouble("Viallages.Percent of chunks") > 0.0
-					&& Math.random() * Math.rint(100.0 / cfg.getDouble("Viallages.Percent of chunks")) == 0)
+					&& Math.random() * Math.rint(100.0 / cfg.getDouble("Viallages.Percent of chunks")) == 0
+					&& cfg.getInt("Viallages.Max Chunks") > 0) {
+				villageChunks.add(e.getChunk());
+				e.getChunk();
+			}
+			if (villageChunks.isEmpty() && cfg.getDouble("Dungeons.Percent of chunks") > 0.0
+					&& Math.random() * Math.rint(100.0 / cfg.getDouble("Dungeons.Percent of chunks")) == 0
+					&& cfg.getInt("Dungeons.Max Chunks") > 0)
 				;
 		}
+	}
+
+	private static ArrayList<Chunk> getSurroundingChunks(Chunk chunk, ArrayList<Chunk> selectedchunks) {
+		return selectedchunks;
 	}
 }
