@@ -14,6 +14,7 @@ public class Village {
 		YamlConfiguration data = Config.load("VillageData");
 		ArrayList<VillageChunk> vc = new ArrayList<VillageChunk>();
 		for (Chunk chunk : chunks) {
+			if(){}
 		}
 	}
 
