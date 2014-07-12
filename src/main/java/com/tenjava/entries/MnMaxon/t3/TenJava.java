@@ -9,11 +9,12 @@ public class TenJava extends JavaPlugin {
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(new MainListener(), this);
 	}
+
 	@Override
 	public void onDisable() {
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		return false;
-	}
+	}// TODO
 }
