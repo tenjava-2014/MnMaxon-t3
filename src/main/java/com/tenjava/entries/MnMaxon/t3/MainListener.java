@@ -51,6 +51,8 @@ public class MainListener implements Listener {
 			}
 		}
 	}
+	@EventHandler
+	public void onInteract(){}
 
 	@EventHandler
 	public void onPopulate(ChunkPopulateEvent e) {
@@ -60,10 +62,8 @@ public class MainListener implements Listener {
 					if (e.getChunk().getBlock(x, y, z).getType().equals(Material.IRON_ORE)
 							|| e.getChunk().getBlock(x, y, z).getType().equals(Material.GOLD_ORE)
 							|| e.getChunk().getBlock(x, y, z).getType().equals(Material.DIAMOND_ORE)
-							|| e.getChunk().getBlock(x, y, z).getType().equals(Material.COAL_ORE)) {
-						Bukkit.broadcastMessage("1");
+							|| e.getChunk().getBlock(x, y, z).getType().equals(Material.COAL_ORE))
 						e.getChunk().getBlock(x, y, z).setType(Material.STONE);
-					}
 				}
 			}
 		}

@@ -11,6 +11,7 @@ public class Village {
 	public int ID;
 
 	public Village(ArrayList<Chunk> chunks) {
+		ID = generateID();
 		YamlConfiguration data = Config.load("VillageData");
 		ArrayList<VillageChunk> vcs = new ArrayList<VillageChunk>();
 		for (Chunk chunk : chunks) {
