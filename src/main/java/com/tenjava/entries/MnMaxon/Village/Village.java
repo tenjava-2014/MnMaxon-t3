@@ -78,8 +78,6 @@ public class Village {
 		vcs.remove(setCenter);
 		TownCenter tc = (TownCenter) setCenter;
 		vcs.add(tc);
-
-		ArrayList<VillageChunk> buildings = new ArrayList<VillageChunk>();
 	}
 
 	private Village(int ID) {
