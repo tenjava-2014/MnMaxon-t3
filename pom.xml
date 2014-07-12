@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tenjava.entries.MnMaxon.t3</groupId> <!-- you're welcome to change this -->
 	<artifactId>MnMaxon-t3</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>ten.java 2014 July</name>
 	<description>Contest entry for ten.java 2014 July</description>
 
