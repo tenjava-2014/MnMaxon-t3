@@ -8,6 +8,8 @@ import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.event.world.ChunkPopulateEvent;
 
@@ -18,7 +20,6 @@ public class MainListener implements Listener {
 	@EventHandler
 	public static void newChunk(ChunkLoadEvent e) {
 		if (e.isNewChunk()) {
-			e.getChunk().getWorld().refreshChunk(e.getChunk().getX(), e.getChunk().getZ());
 			YamlConfiguration cfg = Config.load("Config.yml");
 			cfg = Config.setConfigDefault(cfg, "Villages.Max Chunks");
 			cfg = Config.setConfigDefault(cfg, "Villages.Percent of chunks");
@@ -51,8 +52,43 @@ public class MainListener implements Listener {
 			}
 		}
 	}
+
 	@EventHandler
-	public void onInteract(){}
+	public void onInteract(PlayerInteractEvent e) {
+		e.getPlayer().sendMessage("1");
+		if (e.getAction().equals(Action.RIGHT_CLICK_AIR)) {
+			e.getPlayer().sendMessage("2");
+			YamlConfiguration cfg = Config.load("Config.yml");
+			cfg = Config.setConfigDefault(cfg, "Villages.Max Chunks");
+			cfg = Config.setConfigDefault(cfg, "Villages.Percent of chunks");
+			cfg = Config.setConfigDefault(cfg, "Dungeons.Max Chunks");
+			cfg = Config.setConfigDefault(cfg, "Dungeons.Percent of chunks");
+			ArrayList<Chunk> villageChunks = new ArrayList<Chunk>();
+			ArrayList<Chunk> dungeonChunks = new ArrayList<Chunk>();
+			if (true) {
+				e.getPlayer().sendMessage("3");
+				Bukkit.broadcastMessage("A new Village has been discovered!");
+				villageChunks.add(e.getPlayer().getLocation().getChunk());
+				int size = cfg.getInt("Villages.Max Chunks") / 2;
+				size = (int) (size + Math.rint((cfg.getInt("Villages.Max Chunks") - size) * Math.random()));
+				while (villageChunks.size() < size)
+					villageChunks = getSurroundingChunks(
+							villageChunks.get((int) (Math.random() * (villageChunks.size() - 1))), villageChunks, size);
+				new Village(villageChunks);
+			}
+			if (cfg.getDouble("Dungeons.Percent of chunks") > 0.0
+					&& Math.rint(Math.random() * 100.0 / cfg.getDouble("Dungeons.Percent of chunks")) == 0
+					&& cfg.getInt("Dungeons.Max Chunks") > 0) {
+				dungeonChunks.add(e.getPlayer().getLocation().getChunk());
+				int size = cfg.getInt("Dungeons.Max Chunks") / 2;
+				size = (int) (size + Math.rint((cfg.getInt("Dungeons.Max Chunks") - size) * Math.random()));
+				while (dungeonChunks.size() < size)
+					dungeonChunks = getSurroundingChunks(
+							dungeonChunks.get((int) (Math.random() * (dungeonChunks.size() - 1))), dungeonChunks, size);
+				new Dungeon(dungeonChunks);
+			}
+		}
+	}
 
 	@EventHandler
 	public void onPopulate(ChunkPopulateEvent e) {
