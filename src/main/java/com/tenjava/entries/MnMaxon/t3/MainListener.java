@@ -2,7 +2,9 @@ package com.tenjava.entries.MnMaxon.t3;
 
 import java.util.ArrayList;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,6 +17,14 @@ public class MainListener implements Listener {
 	@EventHandler
 	public static void newChunk(ChunkLoadEvent e) {
 		if (e.isNewChunk()) {
+			for (int x = 0; x <= 16; x++)
+				for (int z = 0; z <= 16; z++)
+					for (int y = 0; y <= 256; y++)
+						if (e.getChunk().getBlock(x, y, z).getType().equals(Material.IRON_ORE)
+								|| e.getChunk().getBlock(x, y, z).getType().equals(Material.GOLD_ORE)
+								|| e.getChunk().getBlock(x, y, z).getType().equals(Material.DIAMOND_ORE)
+								|| e.getChunk().getBlock(x, y, z).getType().equals(Material.COAL_ORE))
+							e.getChunk().getBlock(x, y, z).setType(Material.STONE);
 			YamlConfiguration cfg = Config.load("Config.yml");
 			cfg = Config.setConfigDefault(cfg, "Villages.Max Chunks");
 			cfg = Config.setConfigDefault(cfg, "Villages.Percent of chunks");
@@ -25,6 +35,7 @@ public class MainListener implements Listener {
 			if (cfg.getDouble("Villages.Percent of chunks") > 0.0
 					&& Math.rint(Math.random() * 100.0 / cfg.getDouble("Villages.Percent of chunks")) == 0
 					&& cfg.getInt("Villages.Max Chunks") > 0) {
+				Bukkit.broadcastMessage("A new Village has been discovered!");
 				villageChunks.add(e.getChunk());
 				int size = cfg.getInt("Villages.Max Chunks") / 2;
 				size = (int) (size + Math.rint((cfg.getInt("Villages.Max Chunks") - size) * Math.random()));
