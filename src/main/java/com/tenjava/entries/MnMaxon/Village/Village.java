@@ -1,9 +1,11 @@
-package com.tenjava.entries.MnMaxon.t3;
+package com.tenjava.entries.MnMaxon.Village;
 
 import java.util.ArrayList;
 
 import org.bukkit.Chunk;
 import org.bukkit.configuration.file.YamlConfiguration;
+
+import com.tenjava.entries.MnMaxon.t3.Config;
 
 public class Village {
 	private int ID;

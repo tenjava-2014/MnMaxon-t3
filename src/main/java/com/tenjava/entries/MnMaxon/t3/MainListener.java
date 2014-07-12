@@ -8,6 +8,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkLoadEvent;
 
+import com.tenjava.entries.MnMaxon.Dungeon.Dungeon;
+import com.tenjava.entries.MnMaxon.Village.Village;
+
 public class MainListener implements Listener {
 	@EventHandler
 	public static void newChunk(ChunkLoadEvent e) {
