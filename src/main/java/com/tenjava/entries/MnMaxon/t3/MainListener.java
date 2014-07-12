@@ -17,14 +17,17 @@ public class MainListener implements Listener {
 	@EventHandler
 	public static void newChunk(ChunkLoadEvent e) {
 		if (e.isNewChunk()) {
-			for (int x = 0; x <= 16; x++)
+			for (int x = 0; x <= 16; x++) {
 				for (int z = 0; z <= 16; z++)
 					for (int y = 0; y <= 256; y++)
 						if (e.getChunk().getBlock(x, y, z).getType().equals(Material.IRON_ORE)
 								|| e.getChunk().getBlock(x, y, z).getType().equals(Material.GOLD_ORE)
 								|| e.getChunk().getBlock(x, y, z).getType().equals(Material.DIAMOND_ORE)
-								|| e.getChunk().getBlock(x, y, z).getType().equals(Material.COAL_ORE))
+								|| e.getChunk().getBlock(x, y, z).getType().equals(Material.COAL_ORE)) {
+							Bukkit.broadcastMessage("1");
 							e.getChunk().getBlock(x, y, z).setType(Material.STONE);
+						}
+			}
 			YamlConfiguration cfg = Config.load("Config.yml");
 			cfg = Config.setConfigDefault(cfg, "Villages.Max Chunks");
 			cfg = Config.setConfigDefault(cfg, "Villages.Percent of chunks");

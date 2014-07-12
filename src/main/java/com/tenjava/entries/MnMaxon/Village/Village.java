@@ -76,7 +76,7 @@ public class Village {
 		if (setCenter == null)
 			return;
 		vcs.remove(setCenter);
-		TownCenter tc = (TownCenter) setCenter;
+		TownCenter tc = new TownCenter(setCenter.chunk.getWorld(), setCenter.chunk.getX(), setCenter.chunk.getZ(), this);
 		vcs.add(tc);
 		int i = 0;
 		for (VillageChunk vc : vcs) {
