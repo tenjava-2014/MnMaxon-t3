@@ -12,7 +12,7 @@ public class Village {
 
 	public Village(ArrayList<Chunk> chunks) {
 		YamlConfiguration data = Config.load("VillageData");
-		ArrayList<VillageChunk> vc = new ArrayList<VillageChunk>();
+		ArrayList<VillageChunk> vcs = new ArrayList<VillageChunk>();
 		for (Chunk chunk : chunks) {
 			Chunk north = null;
 			Chunk south = null;
@@ -29,9 +29,24 @@ public class Village {
 
 			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ())))
 				west = chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ());
-			
-			if(){}
+
+			VillageChunk vc = new Road(chunk.getWorld(), chunk.getX(), chunk.getZ());
+			vc.north = north;
+			vc.south = south;
+			vc.east = east;
+			vc.west = west;
+			vcs.add(vc);
 		}
+
+		Boolean hasTownCenter = false;
+		VillageChunk setCenter;
+		for (VillageChunk vc : vcs)
+			if (vc.north != null && vc.south != null && vc.east != null && vc.west != null) {
+				if (!hasTownCenter) {
+					setCenter = vc;
+					hasTownCenter = true;
+				}
+			}
 	}
 
 	private Village(int ID) {
