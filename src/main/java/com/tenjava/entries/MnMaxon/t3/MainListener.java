@@ -28,7 +28,7 @@ public class MainListener implements Listener {
 							e.getChunk().getBlock(x, y, z).setType(Material.STONE);
 						}
 					}
-				}
+				}// TODO
 			}
 			e.getChunk().getWorld().refreshChunk(e.getChunk().getX(), e.getChunk().getZ());
 			YamlConfiguration cfg = Config.load("Config.yml");
