@@ -18,8 +18,8 @@ public class TenJava extends JavaPlugin {
 	}
 
 	private YamlConfiguration setupConfig(YamlConfiguration cfg) {
-		cfg = Config.setConfigDefault(cfg, "Viallages.Max Chunks");
-		cfg = Config.setConfigDefault(cfg, "Viallages.Percent of chunks");
+		cfg = Config.setConfigDefault(cfg, "Villages.Max Chunks");
+		cfg = Config.setConfigDefault(cfg, "Villages.Percent of chunks");
 		cfg = Config.setConfigDefault(cfg, "Dungeons.Max Chunks");
 		cfg = Config.setConfigDefault(cfg, "Dungeons.Percent of chunks");
 		return cfg;

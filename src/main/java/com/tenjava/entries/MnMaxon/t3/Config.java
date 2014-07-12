@@ -42,9 +42,9 @@ public class Config {
 
 	public static YamlConfiguration setConfigDefault(YamlConfiguration cfg, String setting) {
 		if (cfg.get(setting) == null)
-			if (setting.equals("Viallages.Max Chunks"))
+			if (setting.equals("Villages.Max Chunks"))
 				cfg.set(setting, 10);
-			else if (setting.equals("Viallages.Percent of chunks"))
+			else if (setting.equals("Villages.Percent of chunks"))
 				cfg.set(setting, .1);
 			else if (setting.equals("Dungeons.Max Chunks"))
 				cfg.set(setting, 10);
