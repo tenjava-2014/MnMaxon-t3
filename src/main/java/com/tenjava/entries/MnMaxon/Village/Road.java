@@ -1,5 +1,6 @@
 package com.tenjava.entries.MnMaxon.Village;
 
+import org.bukkit.Material;
 import org.bukkit.World;
 
 public class Road extends VillageChunk {
@@ -7,5 +8,24 @@ public class Road extends VillageChunk {
 
 	public Road(World world, int X, int Z, Village village) {
 		super(world, X, Z, village);
+	}
+
+	public void build() {
+		if (north != null)
+			for (int x = 0; x <= 1; x++)
+				for (int z = 16; z >= 8; z--) {
+					chunk.getWorld().getHighestBlockAt(x , z).getRelative(0, -1, 0).setType(Material.COBBLESTONE);
+					chunk.getWorld().getHighestBlockAt(x , z).setType(Material.GRAVEL);
+				}
+		if (east != null)
+			;
+		if (south != null)
+			for (int x = 0; x <= 8; x++)
+				for (int z = 16; z <= 8; z--) {
+					chunk.getWorld().getHighestBlockAt(x , z).getRelative(0, -1, 0).setType(Material.COBBLESTONE);
+					chunk.getWorld().getHighestBlockAt(x , z).setType(Material.GRAVEL);
+				}
+		if (west != null)
+			;
 	}
 }

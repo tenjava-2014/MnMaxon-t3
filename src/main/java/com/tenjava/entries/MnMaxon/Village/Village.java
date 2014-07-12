@@ -78,9 +78,14 @@ public class Village {
 		vcs.remove(setCenter);
 		TownCenter tc = (TownCenter) setCenter;
 		vcs.add(tc);
-		for (VillageChunk vc : vcs)
+		int i = 0;
+		for (VillageChunk vc : vcs) {
 			vc.build();
-		// data.set("ID.", value);
+			data.set("Villages." + ID + ".chunk." + i + ".X", vc.chunk.getX());
+			data.set("Villages." + ID + ".chunk." + i + ".Z", vc.chunk.getZ());
+			data.set("Villages." + ID + ".chunk." + i + ".Type", vc.getType());
+			i++;
+		}
 		Config.save(data, "VillageData");
 	}
 

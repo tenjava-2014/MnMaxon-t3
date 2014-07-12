@@ -25,7 +25,7 @@ public class VillageChunk {
 		id = chunkID;
 		YamlConfiguration data = Config.load("VillageData");
 		setVillageChunk(Bukkit.getWorld(data.getString(villageID + ".World")),
-				data.getInt(villageID + "." + id + ".X"), data.getInt(villageID + "." + id + ".Z"),
+				data.getInt("Villages." + villageID + ".chunk." + id + ".X"), data.getInt(villageID + "." + id + ".Z"),
 				Village.get(villageID));
 	}
 
@@ -48,5 +48,9 @@ public class VillageChunk {
 		if (west != null)
 			count++;
 		return count;
+	}
+
+	public String getType() {
+		return name;
 	}
 }
