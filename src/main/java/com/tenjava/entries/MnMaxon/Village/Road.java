@@ -4,7 +4,8 @@ import org.bukkit.World;
 
 public class Road extends VillageChunk {
 	public static final String name = "Road";
-	public Road(World world, int X, int Z) {
+
+	public Road(World world, int X, int Z, Village village) {
 		super(world, X, Z, village);
 	}
 }

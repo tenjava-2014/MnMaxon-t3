@@ -30,7 +30,7 @@ public class Village {
 			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ())))
 				west = chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ());
 
-			VillageChunk vc = new Road(chunk.getWorld(), chunk.getX(), chunk.getZ());
+			VillageChunk vc = new Road(chunk.getWorld(), chunk.getX(), chunk.getZ(), this);
 			vc.north = north;
 			vc.south = south;
 			vc.east = east;
@@ -80,7 +80,7 @@ public class Village {
 		vcs.add(tc);
 		for (VillageChunk vc : vcs)
 			vc.build();
-		data.set("ID.", value);
+		// data.set("ID.", value);
 		Config.save(data, "VillageData");
 	}
 
