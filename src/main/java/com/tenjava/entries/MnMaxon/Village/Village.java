@@ -20,12 +20,17 @@ public class Village {
 			Chunk west = null;
 			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1)))
 				north = chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1);
+
 			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() - 1)))
 				south = chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() - 1);
+
 			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ())))
-				north = chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ());
-			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1)))
-				north = chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ());
+				east = chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ());
+
+			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ())))
+				west = chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ());
+			
+			if(){}
 		}
 	}
 
