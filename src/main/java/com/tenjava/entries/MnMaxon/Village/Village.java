@@ -14,7 +14,18 @@ public class Village {
 		YamlConfiguration data = Config.load("VillageData");
 		ArrayList<VillageChunk> vc = new ArrayList<VillageChunk>();
 		for (Chunk chunk : chunks) {
-			if(){}
+			Chunk north = null;
+			Chunk south = null;
+			Chunk east = null;
+			Chunk west = null;
+			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1)))
+				north = chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1);
+			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() - 1)))
+				south = chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() - 1);
+			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ())))
+				north = chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ());
+			if (chunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1)))
+				north = chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ());
 		}
 	}
 

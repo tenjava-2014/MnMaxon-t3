@@ -51,27 +51,18 @@ public class MainListener implements Listener {
 		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ()))
 				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
 			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ()));
-		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ() - 1))
-				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
-			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ() - 1));
-		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ()))
-				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
-			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ() + 1));
-		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1))
-				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
-			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1));
-		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() - 1))
-				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
-			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() - 1));
+
 		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ()))
 				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
 			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ()));
-		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ() - 1))
+
+		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ()))
 				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
-			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ() - 1));
-		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ() + 1))
+			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() + 1));
+
+		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() - 1))
 				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size)
-			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX() - 1, chunk.getZ() + 1));
+			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX(), chunk.getZ() - 1));
 		return selectedChunks;
 	}
 }
