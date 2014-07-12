@@ -5,8 +5,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TenJava extends JavaPlugin {
+	public static String dataFolder;
+
 	@Override
 	public void onEnable() {
+		dataFolder = this.getDataFolder().getPath();
 		getServer().getPluginManager().registerEvents(new MainListener(), this);
 	}
 
