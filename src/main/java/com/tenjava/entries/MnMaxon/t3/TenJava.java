@@ -13,8 +13,8 @@ public class TenJava extends JavaPlugin {
 		dataFolder = this.getDataFolder().getPath();
 		getServer().getPluginManager().registerEvents(new MainListener(), this);
 		YamlConfiguration cfg = Config.load("Config.yml");
-		cfg.set("Viallages.Max Chunks", 10);
-		cfg.set("Viallages.Percent of chunks", .1);
+		cfg = Config.setConfigDefault(cfg, "Viallages.Max Chunks");
+		cfg=Config.setConfigDefault(cfg, "Viallages.Percent of chunks");
 		Config.save(cfg, "Config.yml");
 	}
 

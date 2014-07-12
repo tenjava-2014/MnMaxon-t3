@@ -39,4 +39,13 @@ public class Config {
 			e.printStackTrace();
 		}
 	}
+
+	public static YamlConfiguration setConfigDefault(YamlConfiguration cfg, String setting) {
+		if (cfg.get(setting) == null)
+			if (setting.equals("Viallages.Max Chunks"))
+				cfg.set(setting, 10);
+			else if (setting.equals("Viallages.Percent of chunks"))
+				cfg.set(setting, .1);
+		return cfg;
+	}
 }
