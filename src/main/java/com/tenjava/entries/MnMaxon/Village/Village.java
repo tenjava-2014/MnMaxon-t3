@@ -39,14 +39,47 @@ public class Village {
 		}
 
 		Boolean hasTownCenter = false;
-		VillageChunk setCenter;
-		for (VillageChunk vc : vcs)
-			if (vc.north != null && vc.south != null && vc.east != null && vc.west != null) {
+		VillageChunk setCenter = null;
+
+		for (VillageChunk vc : vcs) {
+			int count = vc.amountOfSurroundingChunks();
+			if (count == 4)
 				if (!hasTownCenter) {
 					setCenter = vc;
 					hasTownCenter = true;
 				}
-			}
+		}
+		for (VillageChunk vc : vcs) {
+			int count = vc.amountOfSurroundingChunks();
+			if (count == 3)
+				if (!hasTownCenter) {
+					setCenter = vc;
+					hasTownCenter = true;
+				}
+		}
+		for (VillageChunk vc : vcs) {
+			int count = vc.amountOfSurroundingChunks();
+			if (count == 2)
+				if (!hasTownCenter) {
+					setCenter = vc;
+					hasTownCenter = true;
+				}
+		}
+		for (VillageChunk vc : vcs) {
+			int count = vc.amountOfSurroundingChunks();
+			if (count == 1)
+				if (!hasTownCenter) {
+					setCenter = vc;
+					hasTownCenter = true;
+				}
+		}
+		if (setCenter == null)
+			return;
+		vcs.remove(setCenter);
+		TownCenter tc = (TownCenter) setCenter;
+		vcs.add(tc);
+
+		ArrayList<VillageChunk> buildings = new ArrayList<VillageChunk>();
 	}
 
 	private Village(int ID) {

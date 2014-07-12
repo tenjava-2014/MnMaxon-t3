@@ -16,4 +16,17 @@ public class VillageChunk {
 
 	public void build() {
 	}
+
+	public int amountOfSurroundingChunks() {
+		int count = 0;
+		if (north != null)
+			count++;
+		if (south != null)
+			count++;
+		if (east != null)
+			count++;
+		if (west != null)
+			count++;
+		return count;
+	}
 }
