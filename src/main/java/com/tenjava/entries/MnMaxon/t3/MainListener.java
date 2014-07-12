@@ -20,19 +20,24 @@ public class MainListener implements Listener {
 			ArrayList<Chunk> villageChunks = new ArrayList<Chunk>();
 			ArrayList<Chunk> dungeonChunks = new ArrayList<Chunk>();
 			if (cfg.getDouble("Viallages.Percent of chunks") > 0.0
-					&& Math.random() * Math.rint(100.0 / cfg.getDouble("Viallages.Percent of chunks")) == 0
+					&& Math.rint(Math.random() * 100.0 / cfg.getDouble("Viallages.Percent of chunks")) == 0
 					&& cfg.getInt("Viallages.Max Chunks") > 0) {
 				villageChunks.add(e.getChunk());
 				e.getChunk();
 			}
 			if (villageChunks.isEmpty() && cfg.getDouble("Dungeons.Percent of chunks") > 0.0
-					&& Math.random() * Math.rint(100.0 / cfg.getDouble("Dungeons.Percent of chunks")) == 0
-					&& cfg.getInt("Dungeons.Max Chunks") > 0)
-				;
+					&& Math.rint(Math.random() * 100.0 / cfg.getDouble("Dungeons.Percent of chunks")) == 0
+					&& cfg.getInt("Dungeons.Max Chunks") > 0) {
+			}
 		}
 	}
 
-	private static ArrayList<Chunk> getSurroundingChunks(Chunk chunk, ArrayList<Chunk> selectedchunks) {
-		return selectedchunks;
+	private static ArrayList<Chunk> getSurroundingChunks(Chunk chunk, ArrayList<Chunk> selectedChunks, int size) {
+		YamlConfiguration cfg = Config.load("Config.yml");
+		if (!selectedChunks.contains(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ()))
+				&& Math.rint(Math.random()) == 1 && selectedChunks.size() <= size) {
+			selectedChunks.add(chunk.getWorld().getChunkAt(chunk.getX() + 1, chunk.getZ()));
+		}
+		return selectedChunks;
 	}
 }
