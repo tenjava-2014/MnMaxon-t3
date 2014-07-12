@@ -46,6 +46,10 @@ public class Config {
 				cfg.set(setting, 10);
 			else if (setting.equals("Viallages.Percent of chunks"))
 				cfg.set(setting, .1);
+			else if (setting.equals("Dungeons.Max Chunks"))
+				cfg.set(setting, 10);
+			else if (setting.equals("Dungeons.Percent of chunks"))
+				cfg.set(setting, .1);
 		return cfg;
 	}
 }

@@ -13,9 +13,16 @@ public class TenJava extends JavaPlugin {
 		dataFolder = this.getDataFolder().getPath();
 		getServer().getPluginManager().registerEvents(new MainListener(), this);
 		YamlConfiguration cfg = Config.load("Config.yml");
-		cfg = Config.setConfigDefault(cfg, "Viallages.Max Chunks");
-		cfg=Config.setConfigDefault(cfg, "Viallages.Percent of chunks");
+		cfg = setupConfig(cfg);
 		Config.save(cfg, "Config.yml");
+	}
+
+	private YamlConfiguration setupConfig(YamlConfiguration cfg) {
+		cfg = Config.setConfigDefault(cfg, "Viallages.Max Chunks");
+		cfg = Config.setConfigDefault(cfg, "Viallages.Percent of chunks");
+		cfg = Config.setConfigDefault(cfg, "Dungeons.Max Chunks");
+		cfg = Config.setConfigDefault(cfg, "Dungeons.Percent of chunks");
+		return cfg;
 	}
 
 	@Override
